@@ -13,7 +13,7 @@ services:
       - netteste
     volumes:
       - app-volume:/app
-    command: sh -c "uvicorn app:app --host 0.0.0.0 --reload"
+    command: sh -c "uvicorn main:app --host 0.0.0.0 --reload"
 
 volumes:
   app-volume:
