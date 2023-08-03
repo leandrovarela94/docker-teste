@@ -1,4 +1,4 @@
-version: '3.10'
+version: "3.10"
 
 services:
   app:
@@ -11,6 +11,12 @@ services:
       - postgres
     networks:
       - netteste
+    volumes:
+      - app-volume:/app
+    command: sh -c "uvicorn app:app --host 0.0.0.0 --reload"
+
+volumes:
+  app-volume:
 
   postgres:
     image: postgres:latest
@@ -21,7 +27,6 @@ services:
       POSTGRES_DB: db_docker
     networks:
       - netteste
-
 
 networks:
   netteste:
